@@ -1,0 +1,140 @@
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            
+                            <!-- Light Logo icon -->
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         
+                         <!-- Light Logo text -->    
+                     </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <b style = "color: white;">Tài khoản bán hàng hiện tại: <%= goods %> | Tài khoản bán phiếu hiện tại: <%= cash %></b>
+                            
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" /><%= id %>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        
+        <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+                    
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <br>
+                        <br>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i> <span>Phục vụ khách hàng</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="addaccount"><i class="glyphicon glyphicon-plus"></i>Đăng ký tài khoản</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="buycash"><i class="glyphicon glyphicon-check"></i>Nạp tiền vào ví</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="buyproduct"><i class="glyphicon glyphicon-share"></i>Thanh toán tiền hàng</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-folder-open"></i> <span>Theo dõi kinh doanh</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="buycashhistory"><i class="glyphicon glyphicon-list-alt"></i>Lịch sử nạp tiền</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="salehistory"><i class="glyphicon glyphicon-file"></i>Lịch sử giao dịch</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="settlehistory"><i class="glyphicon glyphicon-retweet"></i>Lịch sử đối soát</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="checksettle"><i class="glyphicon glyphicon-usd"></i>Kiểm tra giá trị đối soát</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-wrench"></i> <span>Thiết lập tài khoản</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="changepass"><i class="glyphicon glyphicon-flash"></i>Đổi mật khẩu</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="glyphicon glyphicon-modal-window"></i>Cập nhật ảnh đại diện</a></li>
+                            </ul>
+                            <ul class="treeview-menu">
+                                <li><a href="/"><i class="glyphicon glyphicon-log-out"></i>Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                
