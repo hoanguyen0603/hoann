@@ -1,0 +1,27 @@
+{
+  "name": "beeju",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-redis": "^3.3.2",
+    "date-and-time": "^0.6.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "knex": "^0.14.0",
+    "mathjs": "^3.16.5",
+    "moment": "^2.20.1",
+    "node-cron": "^1.2.1",
+    "nodemailer": "^4.4.0",
+    "password-hash": "^1.2.2",
+    "pg": "^7.4.0",
+    "phone-number-validation": "^0.3.1"
+  }
+}

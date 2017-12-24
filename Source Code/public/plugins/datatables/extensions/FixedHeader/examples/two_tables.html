@@ -1,0 +1,207 @@
+);}}},_queueHandler:function(args){this._handlers.push(args);},_flushHandlers:function(){var h$=this._handlers;for(var i=0,l=h$.length,h;i<l&&(h=h$[i]);i++){h[0].call(this,h[1],h[2],h[3]);}
+this._handlers=[];}});}());(function(){'use strict';Polymer.Base._addFeature({notifyPath:function(path,value,fromAbove){var info={};var v=this._get(path,this,info);if(arguments.length===1){value=v;}
+if(info.path){this._notifyPath(info.path,value,fromAbove);}},_notifyPath:function(path,value,fromAbove){var old=this._propertySetter(path,value);if(old!==value&&(old===old||value===value)){this._pathEffector(path,value);if(!fromAbove){this._notifyPathUp(path,value);}
+return true;}},_getPathParts:function(path){if(Array.isArray(path)){var parts=[];for(var i=0;i<path.length;i++){var args=path[i].toString().split('.');for(var j=0;j<args.length;j++){parts.push(args[j]);}}
+return parts;}else{return path.toString().split('.');}},set:function(path,value,root){var prop=root||this;var parts=this._getPathParts(path);var array;var last=parts[parts.length-1];if(parts.length>1){for(var i=0;i<parts.length-1;i++){var part=parts[i];if(array&&part[0]=='#'){prop=Polymer.Collection.get(array).getItem(part);}else{prop=prop[part];if(array&&parseInt(part,10)==part){parts[i]=Polymer.Collection.get(array).getKey(prop);}}
+if(!prop){return;}
+array=Array.isArray(prop)?prop:null;}
+if(array){var coll=Polymer.Collection.get(array);var old,key;if(last[0]=='#'){key=last;old=coll.getItem(key);last=array.indexOf(old);coll.setItem(key,value);}else if(parseInt(last,10)==last){old=prop[last];key=coll.getKey(old);parts[i]=key;coll.setItem(key,value);}}
+prop[last]=value;if(!root){this._notifyPath(parts.join('.'),value);}}else{prop[path]=value;}},get:function(path,root){return this._get(path,root);},_get:function(path,root,info){var prop=root||this;var parts=this._getPathParts(path);var array;for(var i=0;i<parts.length;i++){if(!prop){return;}
+var part=parts[i];if(array&&part[0]=='#'){prop=Polymer.Collection.get(array).getItem(part);}else{prop=prop[part];if(info&&array&&parseInt(part,10)==part){parts[i]=Polymer.Collection.get(array).getKey(prop);}}
+array=Array.isArray(prop)?prop:null;}
+if(info){info.path=parts.join('.');}
+return prop;},_pathEffector:function(path,value){var model=this._modelForPath(path);var fx$=this._propertyEffects&&this._propertyEffects[model];if(fx$){for(var i=0,fx;i<fx$.length&&(fx=fx$[i]);i++){var fxFn=fx.pathFn;if(fxFn){fxFn.call(this,path,value,fx.effect);}}}
+if(this._boundPaths){this._notifyBoundPaths(path,value);}},_annotationPathEffect:function(path,value,effect){if(effect.value===path||effect.value.indexOf(path+'.')===0){Polymer.Bind._annotationEffect.call(this,path,value,effect);}else if(path.indexOf(effect.value+'.')===0&&!effect.negate){var node=this._nodes[effect.index];if(node&&node._notifyPath){var p=this._fixPath(effect.name,effect.value,path);node._notifyPath(p,value,true);}}},_complexObserverPathEffect:function(path,value,effect){if(this._pathMatchesEffect(path,effect)){Polymer.Bind._complexObserverEffect.call(this,path,value,effect);}},_computePathEffect:function(path,value,effect){if(this._pathMatchesEffect(path,effect)){Polymer.Bind._computeEffect.call(this,path,value,effect);}},_annotatedComputationPathEffect:function(path,value,effect){if(this._pathMatchesEffect(path,effect)){Polymer.Bind._annotatedComputationEffect.call(this,path,value,effect);}},_pathMatchesEffect:function(path,effect){var effectArg=effect.trigger.name;return effectArg==path||effectArg.indexOf(path+'.')===0||effect.trigger.wildcard&&path.indexOf(effectArg+'.')===0;},linkPaths:function(to,from){this._boundPaths=this._boundPaths||{};if(from){this._boundPaths[to]=from;}else{this.unlinkPaths(to);}},unlinkPaths:function(path){if(this._boundPaths){delete this._boundPaths[path];}},_notifyBoundPaths:function(path,value){for(var a in this._boundPaths){var b=this._boundPaths[a];if(path.indexOf(a+'.')==0){this._notifyPath(this._fixPath(b,a,path),value);}else if(path.indexOf(b+'.')==0){this._notifyPath(this._fixPath(a,b,path),value);}}},_fixPath:function(property,root,path){return
+						<td>Jena Gaines</td>
+						<td>Office Manager</td>
+						<td>London</td>
+						<td>30</td>
+						<td>$90,560</td>
+					</tr>
+					<tr>
+						<td>Haley Kennedy</td>
+						<td>Senior Marketing Designer</td>
+						<td>London</td>
+						<td>43</td>
+						<td>$313,500</td>
+					</tr>
+					<tr>
+						<td>Tatyana Fitzpatrick</td>
+						<td>Regional Director</td>
+						<td>London</td>
+						<td>19</td>
+						<td>$385,750</td>
+					</tr>
+					<tr>
+						<td>Michael Silva</td>
+						<td>Marketing Designer</td>
+						<td>London</td>
+						<td>66</td>
+						<td>$198,500</td>
+					</tr>
+					<tr>
+						<td>Bradley Greer</td>
+						<td>Software Engineer</td>
+						<td>London</td>
+						<td>41</td>
+						<td>$132,000</td>
+					</tr>
+					<tr>
+						<td>Angelica Ramos</td>
+						<td>Chief Executive Officer (CEO)</td>
+						<td>London</td>
+						<td>47</td>
+						<td>$1,200,000</td>
+					</tr>
+					<tr>
+						<td>Suki Burks</td>
+						<td>Developer</td>
+						<td>London</td>
+						<td>53</td>
+						<td>$114,500</td>
+					</tr>
+					<tr>
+						<td>Prescott Bartlett</td>
+						<td>Technical Author</td>
+						<td>London</td>
+						<td>27</td>
+						<td>$145,000</td>
+					</tr>
+					<tr>
+						<td>Timothy Mooney</td>
+						<td>Office Manager</td>
+						<td>London</td>
+						<td>37</td>
+						<td>$136,200</td>
+					</tr>
+					<tr>
+						<td>Bruno Nash</td>
+						<td>Software Engineer</td>
+						<td>London</td>
+						<td>38</td>
+						<td>$163,500</td>
+					</tr>
+					<tr>
+						<td>Hermione Butler</td>
+						<td>Regional Director</td>
+						<td>London</td>
+						<td>47</td>
+						<td>$356,250</td>
+					</tr>
+					<tr>
+						<td>Lael Greer</td>
+						<td>Systems Administrator</td>
+						<td>London</td>
+						<td>21</td>
+						<td>$103,500</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<ul class="tabs">
+				<li class="active">Javascript</li>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>Ajax</li>
+				<li>Server-side script</li>
+			</ul>
+
+			<div class="tabs">
+				<div class="js">
+					<p>The Javascript shown below is used to initialise the table shown in this
+					example:</p><code class="multiline brush: js;">$(document).ready(function() {
+	var t1 = $('table.display').eq(0).DataTable();
+	new $.fn.dataTable.FixedHeader( t1, {
+		bottom: true
+	} );
+
+	var t2 = $('table.display').eq(1).DataTable();
+	new $.fn.dataTable.FixedHeader( t2, {
+		bottom: true
+	} );
+} );</code>
+
+					<p>In addition to the above code, the following Javascript library files are loaded for use in this
+					example:</p>
+
+					<ul>
+						<li><a href="../../../media/js/jquery.js">../../../media/js/jquery.js</a></li>
+						<li><a href=
+						"../../../media/js/jquery.dataTables.js">../../../media/js/jquery.dataTables.js</a></li>
+						<li><a href="../js/dataTables.fixedHeader.js">../js/dataTables.fixedHeader.js</a></li>
+					</ul>
+				</div>
+
+				<div class="table">
+					<p>The HTML shown below is the raw HTML table element, before it has been enhanced by
+					DataTables:</p>
+				</div>
+
+				<div class="css">
+					<div>
+						<p>This example uses a little bit of additional CSS beyond what is loaded from the library
+						files (below), in order to correctly display the table. The additional CSS used is shown
+						below:</p><code class="multiline brush: js;"></code>
+					</div>
+
+					<p>The following CSS library files are loaded for use in this example to provide the styling of the
+					table:</p>
+
+					<ul>
+						<li><a href=
+						"../../../media/css/jquery.dataTables.css">../../../media/css/jquery.dataTables.css</a></li>
+						<li><a href="../css/dataTables.fixedHeader.css">../css/dataTables.fixedHeader.css</a></li>
+					</ul>
+				</div>
+
+				<div class="ajax">
+					<p>This table loads data by Ajax. The latest data that has been loaded is shown below. This data
+					will update automatically as any additional data is loaded.</p>
+				</div>
+
+				<div class="php">
+					<p>The script used to perform the server-side processing for this table is shown below. Please note
+					that this is just an example script using PHP. Server-side processing scripts can be written in any
+					language, using <a href="//datatables.net/manual/server-side">the protocol described in the
+					DataTables documentation</a>.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<section>
+		<div class="footer">
+			<div class="gradient"></div>
+
+			<div class="liner">
+				<h2>Other examples</h2>
+
+				<div class="toc">
+					<div class="toc-group">
+						<h3><a href="./index.html">Examples</a></h3>
+						<ul class="toc active">
+							<li><a href="./simple.html">Basic initialisation</a></li>
+							<li><a href="./header_footer.html">Header and footer fixed</a></li>
+							<li><a href="./top_left_right.html">Header, left and right all fixed</a></li>
+							<li class="active"><a href="./two_tables.html">Multiple tables</a></li>
+							<li><a href="./zIndexes.html">z-index order control</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="epilogue">
+					<p>Please refer to the <a href="http://www.datatables.net">DataTables documentation</a> for full
+					information about its API properties and methods.<br>
+					Additionally, there are a wide range of <a href="http://www.datatables.net/extras">extras</a> and
+					<a href="http://www.datatables.net/plug-ins">plug-ins</a> which extend the capabilities of
+					DataTables.</p>
+
+					<p class="copyright">DataTables designed and created by <a href=
+					"http://www.sprymedia.co.uk">SpryMedia Ltd</a> &#169; 2007-2014<br>
+					DataTables is licensed under the <a href="http://www.datatables.net/mit">MIT license</a>.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
